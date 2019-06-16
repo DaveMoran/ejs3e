@@ -12,19 +12,29 @@
       font-family: modesto-text, serif;
       font-style: normal;
     }
+
+    body {
+      background-color: #f7f7f7;
+    }
+
+    .container {
+      max-width: 660px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: #FFF;
+      border: 1px solid #d8d8d8;
+    }
   </style>
 </head>
 <body>
   <header class="header">
-    <div class="pure-g">
-      <div class="pure-u-1-1">
-        <h1>Eloquent Javascript: 3rd Edition</h1>
-        <h2>No-frills landing page for EJS.3e solutions</h2>
-        <hr />
-      </div>
+    <div class="container">
+      <h1>Eloquent Javascript: 3rd Edition</h1>
+      <h2>No-frills landing page for EJS.3e solutions</h2>
+      <hr />
     </div>
   </header>
-  <main>
+  <main class="container">
     <section id="ch2" class="chapter">
       <div id="q2-1" class="question">
         <h3>Looping a Triangle</h3>
