@@ -353,6 +353,35 @@
           </code></pre>
         </div>
       </div>
+      <div id="q4-4" class="question">
+        <h3>Deep comparison</h3>
+        <p>The == operator compares objects by identity. But sometimes you’d prefer to compare the values of their actual properties.</p>
+        <p>Write a function deepEqual that takes two values and returns true only if they are the same value or are objects with the same properties, where the values of the properties are equal when compared with a recursive call to deepEqual.</p>
+        <p>To find out whether values should be compared directly (use the === operator for that) or have their properties compared, you can use the typeof operator. If it produces "object" for both values, you should do a deep comparison. But you have to take one silly exception into account: because of a historical accident, typeof null also produces "object".</p>
+        <p>The Object.keys function will be useful when you need to go over the properties of objects to compare them.</p>
+        <div class="solution">
+          <pre><code>
+          let finalValue = true;
+          function deepEqual(obj1, obj2){
+            finalValue = true;
+            let obj1Keys = Object.keys(obj1),
+                obj2Keys = Object.keys(obj2);
+            
+            for(let i = 0; i < obj1Keys.length; i++) {
+              if(typeof obj1[obj1Keys[i]] != 'object' && 
+                typeof obj2[obj2Keys[i]] != 'object') {
+                if(obj1[obj1Keys[i]] !== obj2[obj2Keys[i]]) { 
+                  finalValue = false;
+                };
+              } else {
+                deepEqual(obj1[obj1Keys[i]], obj2[obj2Keys[i]]);
+              }
+            }
+            return finalValue;
+          }
+          </code></pre>
+        </div>
+      </div>
     </section>
   </main>
   <footer>
