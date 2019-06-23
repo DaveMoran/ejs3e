@@ -424,6 +424,54 @@
           </code></pre>
         </div>
       </div>
+      <div id="5-4" class="question">
+        <h3>Dominant writing direction</h3>
+        <p>Write a function that computes the dominant writing direction in a string of text. Remember that each script object has a direction property that can be "ltr" (left to right), "rtl" (right to left), or "ttb" (top to bottom).</p>
+        <p>The dominant direction is the direction of a majority of the characters that have a script associated with them. The characterScript and countBy functions defined earlier in the chapter are probably useful here.</p>
+        <div class="solution">
+          <pre><code>
+          function dominantDirection(text) {
+            // Your code here.
+            let allCodePoints = countBy(text, n => characterScript(n.codePointAt(0)));
+            let dominantDirection = {name: '', count: 0, direction: ''};
+            for (let script of allCodePoints) {
+              if(script.count > dominantDirection.count) {
+                dominantDirection.name = script.name.name;
+                dominantDirection.count = script.count;
+                dominantDirection.direction = script.name.direction
+              }
+            }
+            return dominantDirection.direction;
+          }
+          
+          
+          function countBy(items, groupName) {
+            let counts = [];
+            for (let item of items) {
+              let name = groupName(item);
+              let known = counts.findIndex(c => c.name == name);
+              if (known == -1) {
+                counts.push({name, count: 1});
+              } else {
+                counts[known].count++;
+              }
+            }
+            return counts;
+          }
+          
+          function characterScript(code) {
+            for (let script of SCRIPTS) {
+              if (script.ranges.some(([from, to]) => {
+                return code >= from && code < to;
+              })) {
+                return script;
+              }
+            }
+            return null;
+          }
+          </code></pre>
+        </div>
+      </div>
     </section>
   </main>
   <footer>
