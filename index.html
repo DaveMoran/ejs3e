@@ -383,6 +383,19 @@
         </div>
       </div>
     </section>
+    <section id="ch5" class="chapter">
+      <div id="q5-1" class="question">
+        <h3>Flattening</h3>
+        <p>Use the reduce method in combination with the concat method to “flatten” an array of arrays into a single array that has all the elements of the original arrays.</p>
+        <div class="solution">
+          <pre><code>
+          function flatten(arrayToFlatten) {
+            return arrayToFlatten.reduce( (a, b) => a.concat(b) );
+          }
+          </code></pre>
+        </div>
+      </div>
+    </section>
   </main>
   <footer>
 
