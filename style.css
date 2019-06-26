@@ -14,6 +14,12 @@ pre, code {
   font-style: normal;
 }
 
+.solution pre {
+  padding: 15px;
+  background-color: #f8f8f8;
+  border: 1px solid #d8d8d8;
+}
+
 body {
   background-color: #f7f7f7;
   line-height: 1.6;

@@ -28,8 +28,7 @@
       <div id="q2-1" class="question">
         <h3>Looping a Triangle</h3>
         <p>Write a loop that makes seven calls to console.log to output the following triangle:</p>
-        <pre>
-#
+        <pre>#
 ##
 ###
 ####
@@ -38,8 +37,7 @@
 #######</pre>
         <div class="solution">
           <h4>Answer</h4>
-          <pre><code>
-let triangleString = "";
+          <pre><code>let triangleString = "";
 for(let x = 0; x < 7; x++) {
   triangleString += "#";
   console.log(triangleString);
@@ -53,8 +51,7 @@ for(let x = 0; x < 7; x++) {
         <p>(This is actually an interview question that has been claimed to weed out a significant percentage of programmer candidates. So if you solved it, your labor market value just went up.)</p>
         <div class="solution">
           <h4>Answer</h4>
-          <pre><code>
-for(let i = 1; i <= 100; i++) {
+          <pre><code>for(let i = 1; i <= 100; i++) {
   if(i % 3 == 0 && i % 5 == 0) {
     console.log("FizzBuzz");
   } else if(i % 3 == 0) {
@@ -84,8 +81,7 @@ for(let i = 1; i <= 100; i++) {
         <p>When you have a program that generates this pattern, define a binding size = 8 and change the program so that it works for any size, outputting a grid of the given width and height.</p>
         <div class="solution">
           <h4>Answer</h4>
-          <pre><code>
-let cbWidth = 8,
+          <pre><code>let cbWidth = 8,
 cbHeight = 8,
 cbRowString = "";
 
