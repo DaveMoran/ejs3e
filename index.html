@@ -365,7 +365,66 @@
 
         <div class="solution">
           <pre><code>
+          class Group {
+            constructor(values) {
+              this.values = values;
+            }
+            
+            has(valueToCheck) {
+              if(this.values.indexOf(valueToCheck) != -1) {
+                return true;
+              }
+              return false;
+            }
+            
+            add(valToAdd) {
+              if(this.values.indexOf(valToAdd) == -1){
+                this.values.push(valToAdd);
+              }
+              return this.values;
+            }
+            
+            delete(valToDelete) {
+              if(this.values.indexOf(valToDelete) > -1){
+                this.values.splice(this.values.indexOf(valToDelete), 1);
+              }
+              return this.values;
+            }
+            
+            static from(startingVals) {
+              let newVals = [];
+              for(let i = 0; i < startingVals.length; i++) {
+                newVals.push(startingVals[i]);
+              }
+              return new Group(newVals);
+            }
+          }
           
+          class GroupIterator {
+            constructor(values) {
+              this.values = values;
+              this.iterator = 0;
+            }
+          
+            next() {
+              if(this.iterator == this.values.values.length ) return { value: undefined, done: true };
+              let value = { value: this.values.values[this.iterator],
+                            done: false }
+              this.iterator++;
+              return value;
+            }
+          }
+          
+          Group.prototype[Symbol.iterator] = function() {
+            return new GroupIterator(this);
+          }
+          
+          for (let value of Group.from(["a", "b", "c"])) {
+            console.log(value);
+          }
+          // → a
+          // → b
+          // → c
           </code></pre>
         </div>
       </div>
