@@ -320,10 +320,8 @@
             }
             
             has(valueToCheck) {
-              for(let item in this.values) {
-                if(valueToCheck === item) {
-                  return true;
-                }
+              if(this.values.indexOf(valueToCheck) != -1) {
+                return true;
               }
               return false;
             }
@@ -332,7 +330,6 @@
               if(this.values.indexOf(valToAdd) == -1){
                 this.values.push(valToAdd);
               }
-              console.log(this.values);
               return this.values;
             }
             
@@ -340,14 +337,13 @@
               if(this.values.indexOf(valToDelete) > -1){
                 this.values.splice(this.values.indexOf(valToDelete), 1);
               }
-              console.log(this.values);
               return this.values;
             }
             
             static from(startingVals) {
               let newVals = [];
-              for(let i = startingVals[0]; i < startingVals[1]; i++) {
-                newVals.push(i);
+              for(let i = 0; i < startingVals.length; i++) {
+                newVals.push(startingVals[i]);
               }
               return new Group(newVals);
             }
